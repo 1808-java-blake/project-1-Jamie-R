@@ -39,6 +39,22 @@ export async function findByUserId(ers_users_id: number): Promise<User> {
     }
 }
 
+export async function findByUsernameAndPassword(username: string, password: string): Promise<User> {
+  const client = await connectionPool.connect();
+  try {
+    const resp = await client.query(
+      `SELECT * FROM murphys_ers.ers_users u
+      WHERE u.ers_username = $1
+      AND u.ers_password = $2`, [username, password]);
+    if(resp.rows.length !== 0) {
+      return userConverter(resp.rows[0]); // get the user data from first row
+    }
+    return null;
+} finally {
+client.release();
+}
+}
+
 export async function findAll(): Promise<User[]> {
   const client = await connectionPool.connect();
   try {

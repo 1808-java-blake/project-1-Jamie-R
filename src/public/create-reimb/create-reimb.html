@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Create Reimbursement</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="create-reimb.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="../emp-home/emp-home.html">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../create-reimb/create-reimb.html">New Reimbursement</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../reimb-hist/reimb-hist.html">Reimbursement History</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br />
+
+    <h3 class="h3 mb-3 font-weight-normal text-center">Fill out the following form and press submit to request a reimbursement</h3>
+    <form id="reimb-create-form" onsubmit="createReimbursement(event)">
+        <div class="form-group col-md-5">
+            <label for="reimb-input-amount">Enter Reimbursement Amount: </label>
+            <input type="text" class="form-control" id="reimb-input-amount" placeholder="$">
+        </div>
+        <div class="form-group col-md-5">
+            <label for="reimb-input-submitted">Enter today's date</label>
+            <input type="date" class="form-control" id="reimb-input-submitted" placeholder="(mm/dd/yyyy)">
+        </div>
+        <div class="form-group col-md-5">
+            <label for="reimb-textarea-desc">Please state the reason for this reimbursement request: </label>
+            <textarea rows="4" columns="60" class="form-control" id="reimb-textarea-desc" placeholder="Reimbursement description"></textarea>
+        </div>
+
+        <div class="form-group col-md-3">
+            <label for="reimb-select-type">What category does this reimbursement belong to?</label>
+            <select class="custom-select" id="reimb-select-type">
+                <option selected value="1">Lodging</option>
+                <option value="2">Travel</option>
+                <option value="3">Food</option>
+                <option value="4">Other</option>
+            </select>
+        </div>
+
+        <br />
+        <div class="form-group col-md-3 text-center">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+        </div>
+        <p id="error-message"></p>
+    </form>
+
+    <script src="create-reimb.js"></script>
+</body>
+
+</html>

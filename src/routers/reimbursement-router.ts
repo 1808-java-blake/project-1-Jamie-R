@@ -47,7 +47,7 @@ reimbursementRouter.post('', [
   async (req, resp) => {
     try {
       const id = await reimbursementDao.createReimbursement(req.body);
-      resp.status(201);
+      resp.status(200);
       resp.json(id);
     } catch (err) {
       console.log(err);
