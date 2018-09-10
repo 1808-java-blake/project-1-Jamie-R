@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>ERS Manager Portal</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="mgr-home.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="../mgr-home/mgr-home.html">Manage Reimbursements<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../mgr-logout/mgr-logout.html">Log Out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <br />
+    <h2 class="text-center">Welcome to the Expense Reimbursement System Manager Portal!</h2>
+    <h4 class="text-center">Use the buttons below to view all reimbursements, or reimbursements for a certain employee by
+        their ID number</h4>
+
+    <div class="container"></div>
+    <div class="row justify-content-center">
+        <form id="all-reimb-button" class="form-signin" onsubmit="findAll(event)">
+            <h4 class="text-center">View all reimbursements</h4>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Retrieve all</button>
+        </form>
+        <form id="reimb-by-id-button" class="form-signin" onsubmit="findById(event)">
+            <h4 class="text-center">Find reimbursements by employee ID</h4>
+            <input id="input-id" type="text" class="form-control" placeholder="Employee ID#">
+            <br />
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Retrieve by ID</button>
+        </form>
+    </div>
+    </div>
+
+    <div id="reimb-hist-table-div">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID #</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Date Submitted</th>
+                    <th scope="col">Date Resolved</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Employee ID #</th>
+                    <th scope="col">Manager ID #</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Approve</th>
+                    <th scope="col">Deny</th>
+                </tr>
+            </thead>
+            <tbody id="mgr-reimbs-table-body">
+
+            </tbody>
+        </table>
+
+        <script src="mgr-home.js"></script>
+</body>
+
+</html>

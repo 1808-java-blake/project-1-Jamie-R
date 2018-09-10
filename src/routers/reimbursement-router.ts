@@ -21,11 +21,10 @@ reimbursementRouter.get('', [
   }]);
 
 /**
- * Find reimbursements by user id
+ * Find reimbursements by author's id
  */
 reimbursementRouter.get('/:reimbAuthor', async (req, resp) => {
   const reimbAuthor = +req.params.reimbAuthor; // convert the id to a number
-  console.log(`retreiving reimbursements with author id  ${reimbAuthor}`)
   try {
     let reimbursement = await reimbursementDao.findByAuthorId(reimbAuthor);
     if (reimbursement !== undefined) {
@@ -55,3 +54,18 @@ reimbursementRouter.post('', [
     }
   }])
 
+/**
+ * Update reimbursement status (approved/denied)
+ */
+
+reimbursementRouter.patch('/updateStatus', [
+  async (req, resp) => {
+    try {
+      const id = await reimbursementDao.updateStatus(req.body);
+      resp.status(200);
+      resp.json(id);
+    } catch (err) {
+      console.log(err);
+      resp.sendStatus(500);
+    }
+  }])

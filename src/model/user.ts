@@ -8,7 +8,6 @@ export class User {
     lastName = '';
     email = '';
     roleId = 0;
-    // reimbursements: Reimbursement[] = [];
   
     constructor(userId?: number, username?: string, password?: string, firstName?: string, lastName?: string, email?: string,
          roleId?: number, reimbursements?: Reimbursement[]) {
@@ -19,6 +18,5 @@ export class User {
       lastName && (this.lastName = lastName);
       email && (this.email = email);
       roleId && (this.roleId = roleId);
-      // reimbursements && (this.reimbursements = reimbursements);
     }
   }
